@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+data/app.log
+data/rename_history.json
+
+.vscode/
+.idea/
