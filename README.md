@@ -1,5 +1,15 @@
 # Batch File Renamer
 
+```text
+Python CLI tool
+batch file renamer
+rename files safely
+preview apply undo
+conflict detection
+JSON history
+pathlib argparse
+```
+
 Công cụ dòng lệnh dùng để đổi tên file hàng loạt bằng Python.
 
 Project này không đổi tên file ngay lập tức. Chương trình đi qua các bước:
