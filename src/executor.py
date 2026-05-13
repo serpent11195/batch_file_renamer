@@ -5,15 +5,15 @@ import uuid
 
 def preview_plan(plan):
     if not plan:
-        print("Không có file nào cần đổi tên.")
+        print("No files need renaming.")
         return
 
-    print("Kế hoạch đổi tên:")
+    print("Rename plan:")
     print("-" * 80)
     for index, task in enumerate(plan, start=1):
         print(f"{index}. {task['old_name']}  ->  {task['new_name']}")
     print("-" * 80)
-    print(f"Tổng số file sẽ đổi: {len(plan)}")
+    print(f"Total number of files to be converted: {len(plan)}")
 
 
 def apply_plan(plan):
@@ -22,7 +22,7 @@ def apply_plan(plan):
     # 01.txt → 02.txt
     # Đổi qua tên tạm trước, rồi mới đổi sang tên đích
     if not plan:
-        print("Không có file nào cần đổi tên.")
+        print("No files need to be renamed.")
         return
 
     temp_tasks = []
@@ -32,7 +32,7 @@ def apply_plan(plan):
         old_path = Path(task["old_path"])
 
         if not old_path.exists():
-            raise FileNotFoundError(f"File nguồn không tồn tại: {old_path}")
+            raise FileNotFoundError(f"The source file does not exist: {old_path}")
 
         temp_name = ".__renamer_tmp_" + uuid.uuid4().hex + "__" + old_path.name
         temp_path = old_path.with_name(temp_name)
@@ -51,4 +51,4 @@ def apply_plan(plan):
         new_path = Path(task["new_path"])
         temp_path.rename(new_path)
 
-    print(f"Đã đổi tên thành công {len(plan)} file.")
+    print(f"Name changed successfully {len(plan)} file.")

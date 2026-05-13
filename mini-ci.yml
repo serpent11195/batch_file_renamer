@@ -1,0 +1,29 @@
+version: 1
+
+jobs:
+  syntax:
+    description: "Check Python syntax"
+    steps:
+      - python -m compileall src
+
+  tests:
+    description: "Run unit tests"
+    steps:
+      - python -m pytest -q
+
+  structure:
+    description: "Check project structure"
+    continue_on_error: false
+    steps:
+      - python scripts/check_structure.py
+
+  smoke:
+    description: "Run safe CLI smoke tests"
+    steps:
+      - python src/main.py preview --path sample_files --mode normalize
+      - python src/main.py preview --path sample_files --mode lowercase
+      - python src/main.py preview --path sample_files --mode uppercase
+
+  smoke-apply-undo:
+    steps:
+      - python scripts/smoke_apply_undo.py

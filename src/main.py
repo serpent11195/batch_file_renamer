@@ -67,7 +67,7 @@ def run_undo(logger):
     last_plan = load_last_history(HISTORY_FILE)
 
     if not last_plan:
-        print("Chưa có lịch sử đổi tên để undo.")
+        print("There is no history of name changes to undo.")
         logger.info("Undo skipped | no history")
         return
 

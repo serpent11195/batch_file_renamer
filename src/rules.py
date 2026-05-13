@@ -92,4 +92,4 @@ def make_new_name(filename, mode, options, index):
     if mode == "uppercase":
         return uppercase_name(filename)
 
-    raise ValueError(f"Mode không hợp lệ: {mode}")
+    raise ValueError(f"Invalid mode: {mode}")

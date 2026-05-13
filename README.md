@@ -1,5 +1,25 @@
 # Batch File Renamer
 
+## 0. Kiểm tra chất lượng
+
+Định nghĩa các bước kiểm tra cục bộ trong mini-ci.yml
+
+Các bước kiểm tra bao gồm:
+
+- `syntax`: biên dịch các tệp mã nguồn Python
+- `tests`: run pytest
+- `structure`: xác minh các tệp dự án cần thiết
+- `smoke`: chạy các lệnh preview
+- `smoke-apply-undo`: xác minh hành vi apply/undo trong thư mục tạm thời
+
+Chạy thủ công:
+
+```bash
+python -m compileall src
+python -m pytest -q
+python scripts/check_structure.py
+python scripts/smoke_apply_undo.py
+
 ```text
 Python CLI tool
 batch file renamer

@@ -43,6 +43,6 @@ def is_valid_file_name(file_name):
 
 
 def print_errors(errors):
-    print("Có lỗi, chương trình sẽ dừng:")
+    print("An error occurred, and the program will stop:")
     for index, error in enumerate(errors, start=1):
         print(f"{index}. {error}")

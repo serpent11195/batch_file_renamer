@@ -5,5 +5,11 @@ __pycache__/
 data/app.log
 data/rename_history.json
 
+reports/
+*.log
+
+reports/*.json
+!reports/.gitkeep
+
 .vscode/
 .idea/

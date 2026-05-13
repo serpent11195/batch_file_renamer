@@ -11,7 +11,7 @@ def scan_files(path, recursive=False, extensions=None):
     extensions = normalize_extensions(extensions)
 
     if not target.exists():
-        raise FileNotFoundError(f"Không tìm thấy đường dẫn: {target}")
+        raise FileNotFoundError(f"Path not found: {target}")
 
     # Đường dẫn là 1 file
     if target.is_file():
@@ -20,7 +20,7 @@ def scan_files(path, recursive=False, extensions=None):
         return []
 
     if not target.is_dir():
-        raise NotADirectoryError(f"Đường dẫn không phải file hoặc thư mục: {target}")
+        raise NotADirectoryError(f"Paths are not files or folders: {target}")
 
     # "**/*", lấy cả mục con
     # "*", không lấy mục con
